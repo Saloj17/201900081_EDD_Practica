@@ -104,13 +104,21 @@ void CircularDoble::eliminarFinal(){
 
 void CircularDoble::visualizarLista(){
     if (CircularDoble::estaVacia()){
-        cout<<"La lista está vacía\n"<<endl;
+        cout<<"La lista esta vacia\n"<<endl;
     }
     else{
         Nodo *actual = primero;
         do{
-            string nodoDato = actual->getVuelo();
-            cout<<nodoDato<<endl;
+            std::cout << "Vuelo: " << actual->getVuelo() <<endl;
+            std::cout << "Registro: " << actual->getRegistro() <<endl;
+            std::cout << "Modelo: " << actual->getModelo() <<endl;
+            std::cout << "Fabricante: " << actual->getFabricante() <<endl;
+            cout << "Anioo: " << actual->getAnio() <<endl;
+            cout << "Capacidad: " << actual->getCapacidad() <<endl;
+            cout << "Peso: " << actual->getPeso() <<endl;
+            std::cout << "Aerolinea: " << actual->getAreolinea() <<endl;
+            std::cout << "Estado: " << actual->getEstado() <<endl;
+            cout<<endl;
             actual = actual->getSiguiente();
         }while (actual != primero);
     }

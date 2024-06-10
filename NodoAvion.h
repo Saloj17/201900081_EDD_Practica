@@ -5,15 +5,15 @@ class Nodo
 {
 private:
     /* data */
-    string vuelo;
-    string numero_de_registro;
-    string modelo;
-    string fabricante;
-    int ano_fabricacion;
-    int capacidad;
-    int peso_max_despegue;
-    string aerolinea;
-    string estado;
+    string vuelo="";
+    string numero_de_registro="";
+    string modelo="";
+    string fabricante="";
+    int ano_fabricacion=0;
+    int capacidad=0;
+    int peso_max_despegue=0;
+    string aerolinea="";
+    string estado="";
 
     Nodo *anterior;
     Nodo *siguiente;

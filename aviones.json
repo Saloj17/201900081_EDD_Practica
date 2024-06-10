@@ -41,7 +41,7 @@
         "capacidad": 150,
         "peso_max_despegue":77000,
         "aerolinea": "AirlineY",
-        "estado": "Disponible"
+        "estado": "Mantenimiento"
     }
 
 ]
