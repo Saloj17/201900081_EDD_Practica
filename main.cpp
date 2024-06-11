@@ -9,12 +9,41 @@ using json = nlohmann::json;
 #include "json.hpp" // Incluir la biblioteca json.hpp
 
 #include "CircularDoble.h"
+#include "ListaSimple.h"
 
 using json = nlohmann::json;
 using namespace std;
 
 CircularDoble listaDisponible;
 CircularDoble listaMantenimiento;
+
+ListaSimple listaPasajeros;
+
+
+void leerPasajeros() {
+    // Abrir el archivo JSON
+    ifstream archivo("C:\\Users\\SALOJ\\Desktop\\EDD\\201900081_EDD_Practica\\pasajeros.json");
+   
+    // Leer el archivo JSON
+    json j;
+    archivo >> j;
+
+
+    // Procesar cada objeto en el archivo JSON
+    for (const auto& item : j){
+        string nombre=item["nombre"].get<std::string>();
+        string nacionalidad=item["nacionalidad"].get<std::string>();
+        string pasaporte=item["numero_de_pasaporte"].get<std::string>();
+        string vuelo=item["vuelo"].get<std::string>();
+        int asiento=item["asiento"].get<int>();
+        string destino=item["destino"].get<std::string>();
+        string origen=item["origen"].get<std::string>();
+        int equipaje=item["equipaje_facturado"].get<int>();
+
+        listaPasajeros.insertarFinal(nombre, nacionalidad, pasaporte, vuelo, asiento, destino, origen, equipaje);  
+    }
+}
+
 
 void leerAviones() {
     // Abrir el archivo JSON
@@ -60,6 +89,12 @@ int main() {
     cout<<"Lista de mantenimientos"<<endl;
     cout<<endl;
     listaMantenimiento.visualizarLista();
+
+    leerPasajeros();
+    cout<<"********************************"<<endl;
+    cout<<"Lista de pasajeros"<<endl;
+    cout<<endl;
+    listaPasajeros.visualizarLista();
     
 
     
