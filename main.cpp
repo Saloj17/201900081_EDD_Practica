@@ -95,6 +95,13 @@ int main() {
     cout<<"Lista de pasajeros"<<endl;
     cout<<endl;
     listaPasajeros.visualizarLista();
+
+    cout<<"********************************"<<endl;
+    cout<<"Busca pasajeros"<<endl;
+    cout<<"********************************"<<endl;
+    cout<<listaPasajeros.buscaPorPasaporte("P12345678")->getNombre()<<endl;
+    cout<<listaPasajeros.buscaPorPasaporte("P12345678")->getPasaporte()<<endl;
+
     
 
     

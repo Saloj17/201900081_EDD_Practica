@@ -14,6 +14,7 @@ public:
     void eliminarInicio();
     void eliminarFinal();
     void visualizarLista();
+    NodoPasajero* buscaPorPasaporte(string pasaporte);
     ~ListaSimple();
 };
 
@@ -24,6 +25,17 @@ ListaSimple::ListaSimple(/* args */)
 
 bool ListaSimple::estaVacia(){
     return (primero == nullptr) && (ultimo == nullptr);
+}
+
+NodoPasajero* ListaSimple::buscaPorPasaporte(string pasaporte) {
+    NodoPasajero *actual = primero;
+    while (actual != nullptr) {
+        if (actual->getPasaporte() == pasaporte) {
+            return actual;
+        }
+        actual = actual->getSiguiente();
+    }
+    return nullptr;
 }
 
 void ListaSimple::insertarInicio(string nombre, string nacionalidad, string pasaporte, string vuelo, int asiento, string destino,string origen, int equipaje){
