@@ -17,6 +17,8 @@ public:
     void eliminarFinal();
     void visualizarLista();
     void ordenar();
+    Nodo* buscarPorRegistro(string registro);
+    void eliminarPorRegistro(string registro);
     ~CircularDoble();
 };
 
@@ -28,6 +30,59 @@ CircularDoble::CircularDoble(/* args */)
 
 bool CircularDoble::estaVacia(){
     return (primero == nullptr) && (ultimo == nullptr);
+}
+
+void CircularDoble::eliminarPorRegistro(string registro) {
+    if (estaVacia()) {
+        cout << "La lista está vacía. No se puede eliminar ningún nodo." << endl;
+        return;
+    }
+
+    Nodo* nodoAEliminar = buscarPorRegistro(registro);
+
+    if (nodoAEliminar == nullptr) {
+        cout << "No se encontró ningún nodo con el registro " << registro << " en la lista." << endl;
+        return;
+    }
+
+    if (primero == ultimo) {
+        delete nodoAEliminar;
+        primero = ultimo = nullptr;
+        return;
+    }
+
+    // Caso general: hay más de un nodo en la lista
+    Nodo* anterior = nodoAEliminar->getAnterior();
+    Nodo* siguiente = nodoAEliminar->getSiguiente();
+
+    anterior->setSiguiente(siguiente);
+    siguiente->setAnterior(anterior);
+
+    if (nodoAEliminar == primero) {
+        primero = siguiente;
+    }
+    if (nodoAEliminar == ultimo) {
+        ultimo = anterior;
+    }
+
+    delete nodoAEliminar;
+}
+
+
+Nodo* CircularDoble::buscarPorRegistro(string registro) {
+    if (estaVacia()) {
+        return nullptr; 
+    }
+
+    Nodo* actual = primero;
+    do {
+        if (actual->getRegistro() == registro) {
+            return actual;
+        }
+        actual = actual->getSiguiente();
+    } while (actual != primero); 
+
+    return nullptr;
 }
 
 void CircularDoble::insertarInicio(string vuelo, string numero_de_registro, string modelo, string fabricante, int ano_fabricacion, int capacidad,int peso_max_despegue,string aerolinea,string estado){

@@ -10,6 +10,7 @@ using json = nlohmann::json;
 
 #include "CircularDoble.h"
 #include "ListaSimple.h"
+#include "ListaDoble.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -18,6 +19,7 @@ CircularDoble listaDisponible;
 CircularDoble listaMantenimiento;
 
 ListaSimple listaPasajeros;
+ListaDoble listaEquipaje;
 
 
 void leerPasajeros() {
@@ -101,6 +103,24 @@ int main() {
     cout<<"********************************"<<endl;
     cout<<listaPasajeros.buscaPorPasaporte("P12345678")->getNombre()<<endl;
     cout<<listaPasajeros.buscaPorPasaporte("P12345678")->getPasaporte()<<endl;
+    cout<<endl;
+    listaEquipaje.insertarInicio("nombre", "nacionalidad","pasaporte", "vuelo", 01, "destino", "origen", 0);
+    listaEquipaje.visualizarLista();
+
+// Vuelo: A104
+// Registro: A54321
+// Modelo: Airbus A320
+// Fabricante: Airbus
+// Anioo: 2018
+// Capacidad: 150
+// Peso: 77000
+// Aerolinea: AirlineY
+// Estado: Mantenimiento
+    
+    cout<<listaMantenimiento.buscarPorRegistro("A5432")->getModelo()<<endl;
+    cout<<endl;
+    listaMantenimiento.eliminarPorRegistro("A54321");
+    listaMantenimiento.visualizarLista();
 
     
 
