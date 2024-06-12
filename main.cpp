@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <sstream>
 using namespace std;
 #include "json.hpp"
 using json = nlohmann::json;
@@ -21,6 +23,46 @@ CircularDoble listaMantenimiento;
 ListaSimple listaPasajeros;
 ListaDoble listaEquipaje;
 
+void procesarLinea(const std::string& linea) {
+    std::istringstream ss(linea);
+    std::string palabra;
+
+    // Leer la primera palabra de la línea
+    ss >> palabra;
+
+    // Eliminar el punto y coma al final de la primera palabra si está presente
+    if (!palabra.empty() && palabra.back() == ';') {
+        palabra.pop_back();
+    }
+
+    // Procesar la línea según la primera palabra
+    if (palabra == "IngresoEquipajes") {
+        std::cout << "Procesando ingreso de equipajes..." << std::endl;
+        // Agregar aquí el código para procesar el ingreso de equipajes
+    } else if (palabra == "MantenimientoAviones") {
+        std::cout << "Procesando mantenimiento de aviones..." << std::endl;
+        // Agregar aquí el código para procesar el mantenimiento de aviones
+    } else {
+        std::cerr << "Palabra desconocida: " << palabra << std::endl;
+
+    }
+}
+
+void leerArchivoTxt(const std::string& nombreArchivo) {
+    std::ifstream archivo(nombreArchivo);
+
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el archivo " << nombreArchivo << std::endl;
+        return;
+    }
+
+    std::string linea;
+    while (std::getline(archivo, linea)) {
+        procesarLinea(linea);
+    }
+
+    archivo.close();
+}
 
 void leerPasajeros() {
     // Abrir el archivo JSON
@@ -82,6 +124,8 @@ void leerAviones() {
 }
 
 int main() {
+    leerArchivoTxt("movimientos.txt");
+    cout<<endl;
     leerAviones(); // Usar el nombre del archivo JSON
     
     cout<<"Lista de los disponibles"<<endl;
@@ -107,24 +151,11 @@ int main() {
     listaEquipaje.insertarInicio("nombre", "nacionalidad","pasaporte", "vuelo", 01, "destino", "origen", 0);
     listaEquipaje.visualizarLista();
 
-// Vuelo: A104
-// Registro: A54321
-// Modelo: Airbus A320
-// Fabricante: Airbus
-// Anioo: 2018
-// Capacidad: 150
-// Peso: 77000
-// Aerolinea: AirlineY
-// Estado: Mantenimiento
-    
+
     cout<<listaMantenimiento.buscarPorRegistro("A5432")->getModelo()<<endl;
     cout<<endl;
     listaMantenimiento.eliminarPorRegistro("A54321");
     listaMantenimiento.visualizarLista();
-
-    
-
-    
 
     return 0;
 }
