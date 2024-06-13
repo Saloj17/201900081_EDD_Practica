@@ -7,7 +7,7 @@
         "asiento": 12,
         "destino": "New York",
         "origen": "Los Angeles",
-        "equipaje_facturado": 2
+        "equipaje_facturado": 0
     },
     {
         "nombre": "Jane Smith",
@@ -47,6 +47,6 @@
         "asiento": 1,
         "destino": "Dubai",
         "origen": "New York",
-        "equipaje_facturado": 3
+        "equipaje_facturado": 0
     }
 ]

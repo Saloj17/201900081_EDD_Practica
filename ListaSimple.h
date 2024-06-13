@@ -15,6 +15,7 @@ public:
     void eliminarFinal();
     void visualizarLista();
     NodoPasajero* buscaPorPasaporte(string pasaporte);
+    NodoPasajero* visualizarPrimero();
     ~ListaSimple();
 };
 
@@ -79,6 +80,16 @@ void ListaSimple::eliminarInicio(){
     }
 }
 
+NodoPasajero* ListaSimple::visualizarPrimero() {
+    if (estaVacia()) {
+        cout << "La lista está vacía" << endl;
+        return nullptr; // Devuelve nullptr si la lista está vacía
+    } else {
+        NodoPasajero *primerNodo = primero;
+        return primerNodo; // Devuelve el primer nodo
+    }
+}
+
 void ListaSimple::eliminarFinal(){
     if (ListaSimple::estaVacia()){
         cout<<"La lista está vacía"<<endl;
@@ -114,11 +125,11 @@ void ListaSimple::visualizarLista(){
             std::cout << "Nombre: " << actual->getNombre() <<endl;
             std::cout << "Nacionalidad: " << actual->getNacionalidad() <<endl;
             std::cout << "Pasaporte: " << actual->getPasaporte() <<endl;
-            std::cout << "Vuelo: " << actual->getVuelo() <<endl;
-            cout << "Asiento: " << actual->getAsiento() <<endl;
-            std::cout << "Destino: " << actual->getDestino() <<endl;
-            std::cout << "Origen: " << actual->getOrigen() <<endl;
-            cout << "Equipaje: " << actual->getEquipaje() <<endl;
+            // std::cout << "Vuelo: " << actual->getVuelo() <<endl;
+            // cout << "Asiento: " << actual->getAsiento() <<endl;
+            // std::cout << "Destino: " << actual->getDestino() <<endl;
+            // std::cout << "Origen: " << actual->getOrigen() <<endl;
+            // cout << "Equipaje: " << actual->getEquipaje() <<endl;
             cout<<endl;
             actual = actual->getSiguiente();
         }
