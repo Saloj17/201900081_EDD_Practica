@@ -1,0 +1,12 @@
+digraph ListaPasajeros {
+    rankdir=LR;
+    "John Doe" [label="John Doe\nEstados Unidos\nP12345678"];
+    "John Doe" -> "Jane Smith";
+    "Jane Smith" [label="Jane Smith\nReino Unido\nP98765432"];
+    "Jane Smith" -> "Carlos Rodríguez";
+    "Carlos Rodríguez" [label="Carlos Rodríguez\nMexico\nP45678901"];
+    "Carlos Rodríguez" -> "Liu Wei";
+    "Liu Wei" [label="Liu Wei\nChina\nP23456789"];
+    "Liu Wei" -> "Ahmed Al-Farsi";
+    "Ahmed Al-Farsi" [label="Ahmed Al-Farsi\nEmiratos Arabes Unidos\nP34567890"];
+}

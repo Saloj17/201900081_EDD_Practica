@@ -8,6 +8,7 @@ using json = nlohmann::json;
 
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 #include "json.hpp" // Incluir la biblioteca json.hpp
 
 #include "CircularDoble.h"
@@ -63,6 +64,7 @@ void reportesDespligue(){
             cout<<"Cola de registro: "<<endl;
             cout<<endl;
             listaPasajeros.visualizarLista();
+            listaPasajeros.visualizarListaDot();
         }else if (valor == 4){
             cout<<"Lista de equipaje: "<<endl;
             cout<<endl;

@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 #include "NodoPasajero.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
 
 class ListaSimple
 {
@@ -16,6 +21,7 @@ public:
     void visualizarLista();
     NodoPasajero* buscaPorPasaporte(string pasaporte);
     NodoPasajero* visualizarPrimero();
+    void visualizarListaDot();
     ~ListaSimple();
 };
 
@@ -135,6 +141,41 @@ void ListaSimple::visualizarLista(){
         }
     }
 }
+
+void ListaSimple::visualizarListaDot() {
+    std::ofstream archivo("lista_pasajeros.dot");
+
+    archivo << "digraph ListaPasajeros {" << std::endl;
+    archivo << "    rankdir=LR;" << std::endl; // Opcional: Organiza los nodos de izquierda a derecha
+
+    if (estaVacia()) {
+        archivo << "    vacia [label=\"La lista está vacía\", shape=box];" << std::endl;
+    } else {
+        NodoPasajero* actual = primero;
+        while (actual != nullptr) {
+            archivo << "    \"" << actual->getNombre() << "\" [label=\"" << actual->getNombre() << "\\n" << actual->getNacionalidad() << "\\n" << actual->getPasaporte() << "\"];" << std::endl;
+            if (actual->getSiguiente() != nullptr) {
+                archivo << "    \"" << actual->getNombre() << "\" -> \"" << actual->getSiguiente()->getNombre() << "\";" << std::endl;
+            }
+            actual = actual->getSiguiente();
+        }
+    }
+
+    archivo << "}" << std::endl;
+    archivo.close();
+
+    std::cout << "Archivo DOT generado: lista_pasajeros.dot" << std::endl;
+
+    // Generar el archivo PNG utilizando Graphviz
+    std::string comando_dot = "dot -Tpng lista_pasajeros.dot -o lista_pasajeros.png";
+    int resultado = std::system(comando_dot.c_str());
+    if (resultado == 0) {
+        std::cout << "Archivo PNG generado: lista_pasajeros.png" << std::endl;
+    } else {
+        std::cerr << "Error al generar el archivo PNG" << std::endl;
+    }
+}
+
 ListaSimple::~ListaSimple()
 {
 }
