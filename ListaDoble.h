@@ -132,7 +132,7 @@ void ListaDoble::visualizarListaDot() {
     } else {
         NodoEquipaje* actual = primero;
         while(actual != nullptr) {
-            archivo << "    \"" << actual->getNombre() << "\" [label=\"" << actual->getNombre() << "\\n" << actual->getNacionalidad() << "\\n" << actual->getPasaporte() << "\\n" << actual->getVuelo() << "\\n" << actual->getAsiento() << "\\n" << actual->getDestino() << "\\n" << actual->getOrigen() << "\\n" << actual->getEquipaje() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getNombre() << "\" [label=\"" << actual->getPasaporte()<<std::endl<< actual->getNombre()<<std::endl<< actual->getEquipaje()<< "\"];" << std::endl;
             if (actual->getSiguiente() != nullptr) {
                 archivo << "    \"" << actual->getNombre() << "\" -> \"" << actual->getSiguiente()->getNombre() << "\";" << std::endl;
                 archivo << "    \"" << actual->getSiguiente()->getNombre() << "\" -> \"" << actual->getNombre() << "\";" << std::endl; // Conexión en ambos sentidos para lista doblemente enlazada
@@ -167,7 +167,7 @@ void ListaDoble::visualizarPasajeros() {
     } else {
         NodoEquipaje* actual = primero;
         while(actual != nullptr) {
-            archivo << "    \"" << actual->getNombre() << "\" [label=\"" << actual->getNombre() << "\\n" << actual->getNacionalidad() << "\\n" << actual->getPasaporte() << "\\n" << actual->getVuelo() << "\\n" << actual->getAsiento() << "\\n" << actual->getDestino() << "\\n" << actual->getOrigen() << "\\n" << actual->getEquipaje() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getNombre() << "\" [label=\"" <<"\\nPasaporte: " << actual->getPasaporte()<<"\\nNombre: " << actual->getNombre()<<"\\nVuelo: " << actual->getVuelo()<<"\\nAsiento: " << actual->getAsiento()<< "\"];" << std::endl;
             if (actual->getSiguiente() != nullptr) {
                 archivo << "    \"" << actual->getNombre() << "\" -> \"" << actual->getSiguiente()->getNombre() << "\";" << std::endl;
                 archivo << "    \"" << actual->getSiguiente()->getNombre() << "\" -> \"" << actual->getNombre() << "\";" << std::endl; // Conexión en ambos sentidos para lista doblemente enlazada

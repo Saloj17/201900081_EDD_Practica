@@ -1,4 +1,0 @@
-digraph ListaPasajeros {
-    rankdir=LR;
-    "Ahmed Al-Farsi" [label="Ahmed Al-Farsi\nEmiratos Arabes Unidos\nP34567890"];
-}

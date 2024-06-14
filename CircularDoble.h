@@ -197,7 +197,7 @@ void CircularDoble::visualizarDisponibles() {
     } else {
         Nodo* actual = primero;
         do {
-            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Vuelo: " << actual->getVuelo() << "\\nRegistro: " << actual->getRegistro() << "\\nModelo: " << actual->getModelo() << "\\nFabricante: " << actual->getFabricante() << "\\nAño: " << actual->getAnio() << "\\nCapacidad: " << actual->getCapacidad() << "\\nPeso: " << actual->getPeso() << "\\nAerolínea: " << actual->getAreolinea() << "\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Registro: " << actual->getRegistro() <<"\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
             archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getSiguiente()->getVuelo() << "\";" << std::endl;
             archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getAnterior()->getVuelo() << "\";" << std::endl;
             actual = actual->getSiguiente();
@@ -230,7 +230,7 @@ void CircularDoble::visualizarMantenimiento() {
     } else {
         Nodo* actual = primero;
         do {
-            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Vuelo: " << actual->getVuelo() << "\\nRegistro: " << actual->getRegistro() << "\\nModelo: " << actual->getModelo() << "\\nFabricante: " << actual->getFabricante() << "\\nAño: " << actual->getAnio() << "\\nCapacidad: " << actual->getCapacidad() << "\\nPeso: " << actual->getPeso() << "\\nAerolínea: " << actual->getAreolinea() << "\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Registro: " << actual->getRegistro() <<"\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
             archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getSiguiente()->getVuelo() << "\";" << std::endl;
             archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getAnterior()->getVuelo() << "\";" << std::endl;
             actual = actual->getSiguiente();
