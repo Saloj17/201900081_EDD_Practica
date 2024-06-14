@@ -56,10 +56,12 @@ void reportesDespligue(){
             cout<<"Aviones disponibles: "<<endl;
             cout<<endl;
             listaDisponible.visualizarLista();
+            listaDisponible.visualizarDisponibles();
         }else if (valor == 2){
             cout<<"Aviones en mantenimiento: "<<endl;
             cout<<endl;
             listaMantenimiento.visualizarLista();
+            listaMantenimiento.visualizarMantenimiento();
         }else if (valor == 3){
             cout<<"Cola de registro: "<<endl;
             cout<<endl;
@@ -69,11 +71,13 @@ void reportesDespligue(){
             cout<<"Lista de equipaje: "<<endl;
             cout<<endl;
             listaEquipaje.visualizarLista();
+            listaEquipaje.visualizarListaDot();
         }else if (valor == 5){
             cout<<"Lista de pasajeros (ordenados): "<<endl;
             cout<<endl;
 
             listaPasajerosOrdenados.visualizarLista();
+            listaPasajerosOrdenados.visualizarPasajeros();
         }else{
             cout << "Ha salido de reportes"<<endl;
             break;

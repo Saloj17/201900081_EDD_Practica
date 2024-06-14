@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 #include "NodoAvion.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
 
 class CircularDoble
 {
@@ -19,6 +24,8 @@ public:
     void ordenar();
     Nodo* buscarPorRegistro(string registro);
     void eliminarPorRegistro(string registro);
+    void visualizarMantenimiento();
+    void visualizarDisponibles();
     ~CircularDoble();
 };
 
@@ -178,6 +185,73 @@ void CircularDoble::visualizarLista(){
         }while (actual != primero);
     }
 }
+
+void CircularDoble::visualizarDisponibles() {
+    std::ofstream archivo("disponibles.dot");
+
+    archivo << "digraph AvionDisponible {" << std::endl;
+    archivo << "    rankdir=LR;" << std::endl; // Opcional: Organiza los nodos de izquierda a derecha
+
+    if (estaVacia()) {
+        archivo << "    vacia [label=\"La lista está vacía\", shape=box];" << std::endl;
+    } else {
+        Nodo* actual = primero;
+        do {
+            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Vuelo: " << actual->getVuelo() << "\\nRegistro: " << actual->getRegistro() << "\\nModelo: " << actual->getModelo() << "\\nFabricante: " << actual->getFabricante() << "\\nAño: " << actual->getAnio() << "\\nCapacidad: " << actual->getCapacidad() << "\\nPeso: " << actual->getPeso() << "\\nAerolínea: " << actual->getAreolinea() << "\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getSiguiente()->getVuelo() << "\";" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getAnterior()->getVuelo() << "\";" << std::endl;
+            actual = actual->getSiguiente();
+        } while (actual != primero); // Corregido: Utilizamos el bucle do-while para asegurarnos de que se recorra toda la lista
+    }
+
+    archivo << "}" << std::endl;
+    archivo.close();
+
+    std::cout << "Archivo DOT generado: disponibles.dot" << std::endl;
+
+    // Generar el archivo PNG utilizando Graphviz
+    std::string comando_dot = "dot -Tpng disponibles.dot -o disponibles.png";
+    int resultado = std::system(comando_dot.c_str());
+    if (resultado == 0) {
+        std::cout << "Archivo PNG generado: disponibles.png" << std::endl;
+    } else {
+        std::cerr << "Error al generar el archivo PNG" << std::endl;
+    }
+}
+
+void CircularDoble::visualizarMantenimiento() {
+    std::ofstream archivo("mantenimiento.dot");
+
+    archivo << "digraph AvionesMantenimiento{" << std::endl;
+    archivo << "    rankdir=LR;" << std::endl; // Opcional: Organiza los nodos de izquierda a derecha
+
+    if (estaVacia()) {
+        archivo << "    vacia [label=\"La lista está vacía\", shape=box];" << std::endl;
+    } else {
+        Nodo* actual = primero;
+        do {
+            archivo << "    \"" << actual->getVuelo() << "\" [label=\"Vuelo: " << actual->getVuelo() << "\\nRegistro: " << actual->getRegistro() << "\\nModelo: " << actual->getModelo() << "\\nFabricante: " << actual->getFabricante() << "\\nAño: " << actual->getAnio() << "\\nCapacidad: " << actual->getCapacidad() << "\\nPeso: " << actual->getPeso() << "\\nAerolínea: " << actual->getAreolinea() << "\\nEstado: " << actual->getEstado() << "\"];" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getSiguiente()->getVuelo() << "\";" << std::endl;
+            archivo << "    \"" << actual->getVuelo() << "\" -> \"" << actual->getAnterior()->getVuelo() << "\";" << std::endl;
+            actual = actual->getSiguiente();
+        } while (actual != primero);
+    }
+
+    archivo << "}" << std::endl;
+    archivo.close();
+
+    std::cout << "Archivo DOT generado: mantenimiento.dot" << std::endl;
+
+    // Generar el archivo PNG utilizando Graphviz
+    std::string comando_dot = "dot -Tpng mantenimiento.dot -o mantenimiento.png";
+    int resultado = std::system(comando_dot.c_str());
+    if (resultado == 0) {
+        std::cout << "Archivo PNG generado: mantenimiento.png" << std::endl;
+    } else {
+        std::cerr << "Error al generar el archivo PNG" << std::endl;
+    }
+}
+
 
 CircularDoble::~CircularDoble()
 {

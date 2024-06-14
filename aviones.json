@@ -31,5 +31,104 @@
         "peso_max_despegue":79000,
         "aerolinea": "AirlineX",
         "estado": "Disponible"
+    },
+    {
+        "vuelo":"A104",
+        "numero_de_registro":"N12345",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo":"A105",
+        "numero_de_registro":"N13579",
+        "modelo":"Airbus A320",
+        "fabricante": "Airbus",
+        "ano_fabricacion": 2018,
+        "capacidad": 150,
+        "peso_max_despegue":77000,
+        "aerolinea": "AirlineY",
+        "estado": "Mantenimiento"
+    },
+    {
+        "vuelo":"A106",
+        "numero_de_registro":"N54321",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Mantenimiento"
+    },
+    {
+        "vuelo":"A107",
+        "numero_de_registro":"N12345",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo":"A108",
+        "numero_de_registro":"N13579",
+        "modelo":"Airbus A320",
+        "fabricante": "Airbus",
+        "ano_fabricacion": 2018,
+        "capacidad": 150,
+        "peso_max_despegue":77000,
+        "aerolinea": "AirlineY",
+        "estado": "Mantenimiento"
+    },
+    {
+        "vuelo":"A109",
+        "numero_de_registro":"N54321",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo":"A110",
+        "numero_de_registro":"N12345",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo":"A111",
+        "numero_de_registro":"N13579",
+        "modelo":"Airbus A320",
+        "fabricante": "Airbus",
+        "ano_fabricacion": 2018,
+        "capacidad": 150,
+        "peso_max_despegue":77000,
+        "aerolinea": "AirlineY",
+        "estado": "Mantenimiento"
+    },
+    {
+        "vuelo":"A112",
+        "numero_de_registro":"N54321",
+        "modelo":"Boeing 737",
+        "fabricante": "Boeing",
+        "ano_fabricacion": 2015,
+        "capacidad": 180,
+        "peso_max_despegue":79000,
+        "aerolinea": "AirlineX",
+        "estado": "Disponible"
     }
 ]
